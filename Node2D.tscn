@@ -1,0 +1,94 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://images/bg.png" type="Texture" id=3]
+[ext_resource path="res://images/cloud1.png" type="Texture" id=4]
+[ext_resource path="res://images/cloud2.png" type="Texture" id=5]
+[ext_resource path="res://images/tree2.png" type="Texture" id=6]
+[ext_resource path="res://images/rumput.png" type="Texture" id=7]
+[ext_resource path="res://images/tree.png" type="Texture" id=8]
+[ext_resource path="res://images/ground.png" type="Texture" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32.1971, 32.5044 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 225.49, 474.128 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+position = Vector2( 287.827, -173.269 )
+current = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Background"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Cloud" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Cloud"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Cloud2" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Cloud2"]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Pohon" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Pohon"]
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Rumput" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
+motion_scale = Vector2( 0.8, 1 )
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Rumput"]
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Pohon2" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Pohon2"]
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Ground"]
+texture = ExtResource( 9 )
+centered = false
+
